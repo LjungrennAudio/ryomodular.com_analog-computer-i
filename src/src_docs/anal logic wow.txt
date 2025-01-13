@@ -1,0 +1,335 @@
+﻿https://www.rfcafe.com/references/popular-electronics/analog-logic-popular-electronics-april-1972.htm
+
+[::/brain pilot - wet wired (first wiring)]
+
+Whenever I read the April issue of any magazine, vintage or contemporary, lurking in my mind is whether it is an attempt at an April Fools "gotcha." The article title is usually the first clue that the author is trying to punk me at least provides a sporting chance. Take for instance this "Analog Logic" piece in the April 1972 edition of Popular Electronics. It could easily be a hoax, so I proceeded cautiously. It turns out to be completely legitimate. James Hannas provides a few examples of how analog circuits can be used to perform mathematical functions that are easily handled by logic circuits. Of course prior to the introduction of readily available, inexpensive digital integrated circuits only a few years earlier, all those mathematical functions were performed by analog circuits, so this was nothing new to most readers. If you have never researched the capabilities of both analog and mechanical computers, it would be worth your time; you will be amazed. One example that always impresses me is the electromechanical systems that pointed and stabilized the massive gun turrets on battleships during World War II.
+
+Analog Logic: It Takes More Than Flip-Flops to Make a Calculator
+
+By James Hannas
+
+Analog summing circuit - RF Cafe
+
+Analog amplifier - RF Cafe
+
+Analog diode shunt network squaring circuit - RF Cafe
+
+Analog squaring circuit - RF Cafe
+
+Analog division circuit - RF Cafe
+
+Have you ever wondered how some complex calculators can do so many operations at such high speed and accuracy? The answer is in the use of linear and non-linear integrated circuits that are basically quite simple in theory. Most of the circuits involve an operational amplifier - a very high-gain linear amplifier that inverts the input signal.
+
+When input and feedback resistors are connected to the op amp as shown in Fig. 1, the amplifier tries to maintain its input as close to zero as possible. The higher the gain, the lower the offset or error voltage. To do this, the amplifier must cause a current through the feedback and input so that the voltage drop across the input resistor is equal to the input voltage. The input swing is equal to the input voltage times Rf/Ri. A graphical analogy of the amplifier is shown in Fig. 2.
+
+Using the same circuit, but with additional input resistors, the amplifier can be made into an adder. The sum of the voltages can also be multiplied by a constant by adjusting the input resistors.
+
+Nonlinear functions, such as squaring, can be performed by the diode shunt matrix shown in Fig. 3. By adjusting the feedback resistors, any type of curve with increasing magnitude can be formed. A logarithmic, or decreasing, curve will result when the diode matrix is used as a feedback instead of a shunt matrix.
+
+The most common squaring circuit is shown in Fig. 4. The numbers on the op amps indicate the multiplier constants. By adding one quarter of the sums of A-B and A+B, the result is the product of A and B.
+
+Division is shown in Fig. 5. Here an op amp is supplied feedback by a multiplier circuit which is controlled by B. As B increases, the output decreases.
+
+There are also operational amplifiers and multipliers which are binary-to-analog and analog-to-binary converters. These are basically resistor networks and amplifiers. By combining analog circuits with binary bit storage, switching and readouts, a compact calculator can be designed.
+
+.......
+
+to begin with a slight digression,
+
+not only do i own a set of RYO 4hp logics [made using transistor-resistor technology - it got man to the moon, its good enough for our music!] - surprise surprise i helped conceptualise the idea, design the circuits, do prototyping etc lol, i also own a full set of all the ladik 4hp boolean logics and math functions available - and also i have two klavis logica xt's;
+
+but,
+when i procured all those 4-5hp neat little digital logic modules i also, with no planned out purpose or need or them, i grabbed the ladik comparator, min-max, median, derivator, and very importantly a coupla doepfer beauties - the quad envelope follower and the slope grenerator. many know the value of the slope generator in such areas as analogue logic since its the precursor to maths - it basically is half a maths/DUSG/whatever - envelope followers and slews are great at converting digital info like clocks/gates/trigs into analogue cv or even audio.
+[n.b. when thinking audio rate, filters come into play - you want to smooth an audio rate digital signal - i.e. a square wave? an lpf is your guy, an audio rate slew basically - applying such things can slim data from a clock or cv running at adio rate into a string of trigs that are more sparse or a varying but gently undulating analogue cv]
+
+my favourite of these neat little quirks i had yet to discover when buying them was ladiks median - a function associated with the min-max but less commonly seen and so not as well understood in its possibilities - especially ladiks, because it can be used in a number of ways:
+- As a middle value selector: the best known use for most median modules, following middle voltage value of 3 inpuits.
+- As a median value selector using only two or even just one cv: since the module has two fixed cv sources - ladiks has an offset derived from the two unused knobs and when no external cv is connected, then one knob sets the limit and the other knob can output a voltage between 0V and limit - allowing you to derive a median output from just one input voltage and the other knob setting or 0V!
+- As a voltage limiter: an input voltage will only be passed as long as its between hte two limits - whether set by the the knob offsets, ground or an external applied offset limit.
+
+tbh i tend to enjoy most the truly weird ones like a good ol' fashioned comparator or ladiks derivator that take analougue inputs and yet produce digital outputs - things that allow you to convert 'wavefollowed' audio signals or fluctuating smooth/slewed cv's into gates, trigs, clocks and other on/off digital, squared outs.
+
+eitherway, the world of analogue logic is not just fun but the also the weirder world of interchanging between analogue and digital to get mixed up systems involving both being processed in the same way - even more fun!
+
+i think ive mentioned before in a post somewhere on this forum my theory that you can think of all modules as tools for converting one signal type into another:
+CODE: SELECT ALL
+
+Setups like mine relly show this, the basic building blocks of synthesis only fall into a few categories
+- comparators [cv into trig/gate], sequencers/env followers/syncable lfos [trig into cv], quantisers [cv into 1v/oct],
+multiple output logics/math/vc clock divs etc [trig to multiple dif trig patterns],
+logic combiners/mixers [turning multiple trigs/gates/cvs into single complex trigs/gates/cvs]
+vco’s [1v/oct cv into audio],
+filters/waveshapers/audio modulators [basic audio into complex audio/varying audio], etc. ...
+...you just need to start [with] somthing like ...
+an lfo to generate a raw signal from scratch, and then via converting that signal into more complex varying cv’s
+[ - clocks, 1v/oct, melody/bassline/chord patterns, drum rhythms, modulation signals],
+audio, [and many other] outputs, and generally [therefore]
+more diverse signals, the only thing missing from the whole ... is feedback loops
+my entire world is generative sequencing right now - so its very convenient to think 'i have an lfo generating the raw source cv's - i want a 1v/oct phrase that slowly evolves over a very long time but has some feeling of familiarity to it although not repeating' - solution, convert the raw cv, a pattern - mix multiple waveforms from lfo [mixer is analogue _or_ combiner], turn new waveform into 1v/oct [quantiser], output needs to feedback to input so as to influence the phrase to slowly evolve [mult the output 1v/oct to the source lfo rate cv in, via a median or wavefolder module to limit te excessive runaway increase in speed of the lfo that would occur if 1v/oct pitch were direct link feedback to lfo rate];
+
+- already that setup has a consistent source of repeating familiarity: the source lfo's output pattern
+- it will slowly vary via changing the source lfo via feedback, but not too much or too fast: limiting median/wavefolder rectifying peaks
+- lack of variation can be fixed by using two cross modulating / cross syncing lfos as source [vc clock div great for sync feedback loops]
+- extra feedback loops can create variance without deviating completely and permanently from the original pattern, using, e.g. conversions from analogue to digital or vice versa to account for 1v/oct to sync clocks or squarewave outs to gentler fall rise signals using slews or env followers...
+
+such an approach ensures you always have the right tool for the job and can get any cv, clock, gate, trig, audio or 1v/octv as necessary from any available source regardless of its native state - try applying this theory, it'll revolutionise yor patching technique!
+
+.....
+
+i want a 1v/oct phrase that slowly evolves over a very long time ...
+This sounds like exactly the kind of stuff I'm trying to do right now, but I don't quite understand the technique. Could you explain again it in more detail?
+i want a 1v/oct phrase that slowly evolves over a very long time but has some feeling of familiarity to it although not repeating' - solution,:
+
+- convert the raw cv, a pattern - mix multiple waveforms from lfo [mixer is analogue _or_ combiner],
+take a couple [minimum two] LFO's and combine some outputs in a mixer to make a complex waveform [e.g. some ramp, sine, saw, and tri in different amplitudes and frequencies]
+[cross modulating the rate or sync of the two or more LFO's will make for even more complex patterns that vary every other or every 4 or whatever phrases.]
+when the output of this mixer is fed into a quantiser it will give a nice melody phrase to work with
+[note, this will be a continuous stream of pitch changing output from quantiser so we will also need to derive a gate pattern for rhythm]
+
+- turn new waveform into 1v/oct [quantiser],
+just feed the output of the mixer the was fed the LFO's into the quantiser's input.
+[if you feed the square wave into a quantiser that takes trig ins (may need gate to trig converter) you can get some even more rhythmic changes in pitch, and likewise a quaniser that produces gate outs or trig outs will give you your rhythm for your voice modules.
+alternately, sending the square outs of the lfos into boolean logic modules you can get rhythmical gates to drive the voice modules]
+
+- output needs to feedback to input so as to influence the phrase to slowly evolve [mult the output 1v/oct to the source lfo rate cv in...,
+the output of the quantiser (1v/oct signal) needs to influence the modules generating its output - i.e. we need to create a feedback loop involving the LFO's driving the quantiser pitch, then the quantiser pitch out [i.e. the 1v/oct signal] going back to LFO rate in, so as to create an effect that each time the LFO's change the quantiser pitch it changes the output of the LFO's feeding into it so that it doesn't repeat identically.
+[this gives us our evolution - each time the quantiser outputs it changes the LFO's creating its input via feedback loops so the pattern iss never quite the same even tho similar]
+so, we mult the 1v/oct out of the quantiser [the out would normally just drive pittch in of the voice modules] and the multed copy[ies] go to rate inputs of the LFO's generating the patterns for the quantiser [attenuated/attenuverted/offset as necessary]
+
+- ...via a median or wavefolder module to limit any excessive runaway increase in speed of the lfo that would occur if 1v/oct pitch were direct link feedback to lfo rate]; or total lock up,
+we need to include a module that takes away the peaks and troughs [or limits] the signal from the quantisers 1v/oct out so that when it feedsback into the LFO(s) rate input it doesnt cause a runaway loop getting faster and faster, pitch increasing, making for rate increase, causing pitch increase, causing lfo rate increase etc. or alternatively drop in pitch, slowing lfo so causing drop in pitch so slowing lfo til the whole thing locks up dead.
+
+as you might note, utilities are crucial as in any moduilar patch - you will need mixers, attenuators, inverters, offsets etc.
+
+
+[Between these two parts, you could add a couple comparators to pick out three note values, and feed these to a Logica in 1,2,3 mode, controlling a vca gate to allow or prohibit the feedback to the source lfos. So your pattern would progress its evolution only when a particular cadence is played.]
+
+[[i have 2 x logica xt - :o]]
+
+......
+
+I petition the masses to stop using the terminology analog AND/OR. instead I propose the well understood seldom conflated terminology of MIN/MAX. SUM and DIFF can be described as a mixer and a mixer with an inverting opamp on one of the inputs.
+
+inverting gain stage is the math of f(x)=-x
+a mixer is f(x,y)=x+y
+diff is f(x,y)=x-y
+
+min can be described as
+IF x<y THEN x ELSE y
+max is the opposite of min
+IF x>y THEN x else y
+
+this is why it is possible to use a comparator for <
+you can use a VC crossfader to handle the IF THEN ELSE
+
+all you get from a min max module is a consolidated VC mute with an analog comparator.
+
+I will remind people that all logic modules used in analog modular synthesis are in fact analog comparators in front of digital logic modules. there are an infinite number of voltage states being used as input to any digital logic module used in modular. to be precise, digital logic circuits only operate on 2 state inputs that are discrete. because the digital logic modules must interface user systems, the digital logic is not exposed, it is protected sitting behind level shifters, reverse voltage protection, over voltage protection, low pass filtering etc..
+
+......
+
+A set of three comparators can compute any binary logic function (this was the idea behind the Serge triple comparator module).
+info + patches in this thread: viewtopic.php?f=19&t=237097&p=3341496&h ... r#p3341496
+
+More can be done with positive and negative feedback. With positive feedback some of the comparator output is fed back into the '+' terminal, with
+
+Positive feedback can produce hysteresis or Schmitt trigger effects, which turns the comparator into a memory element.
+
+Negative feedback turns the comparator into a linear element (clipped at 0 and 5 V): enabling it to produce voltages between 0 and 5 V. To understand this just think of the comparator as an infinite gain that clips between 0 and 5 v, and the negative feedback converting infinite to finite gain
+
+A feedback gain of x produces a comparator gain of 1/x. So the negative feedback trick can be used to divide two signals as long as they are positive-valued and you accept the clipping.
+
+Anyway if you have your logic, you can make it 'fuzzy' by introducing small amounts of negative feedback into each comparator -- so you have no longer a binary decision but an intermediate value reflecting uncertainty in the decision.
+
+You can make it 'sticky' by introducing small amounts of positive feedback, this is good for debouncing or solving other problems with noisy inputs, with some response lag in exchange.
+
+The ability to compute any logic function as well as change behavior through analog feedback is why the comparator is the best building block for analog logic, of which digital logic is a special case.
+
+
+......
+
+
+The Noise Rainbow is a source of analogue noise and digital pseudorandom pulses.  Both sources are generated by new old stock Soviet components (KГ401 and К176ИР10).
+
+
+......
+
+
+AND GATE aka 'min' = Signal A -> Input 1 / Signal B -> CV (Basically this is same as a linear VCA)
+OR GATE aka 'max' = Signal A -> Input 1 & CV / Signal B -> Input 2
+XOR GATE aka 'ring mod' = Signal A -> Input 1 / Inverted Signal A -> Input 2, Signal B -> CV Input
+
+Bi-directional switches with latches (e.g. Instruo - Tain / Ritual Electronics - Pointeuse)
+
+momentary mode IF, THEN, ELSE CONDITIONAL LOGIC (1 input to 2 output) = if triggered (>certain voltage threshold), then output 2, else output 1
+momentary mode NOT GATE (2 input to 1 output) = gate is high by default, gate is low when triggered
+latch mode FLIP-FLOP LOGIC (1 input to 2 output) = flip-flops output 1 & output 2 alternatively when triggered
+
+
+......
+
+
+I needed some other things from Ladik again anyway.
+
+And I have a ColdMac already, plus an NLC Divide & Conquer, and a Gatsby and Pithoprakta for Gates as well as the usual things like a Befaco Burst and a Branches.
+
+
+......
+
+What would you add? Logic Module extender
+Post by KSS » Mon May 31, 2021 4:41 am
+
+I'm looking to add an H module extension to this 1089 50SQ Analogic Block and would like to ask the MW community to help me see and decide what should go into it..
+I saw something very much like this made using CGS PCBs and thought it looked like a good thing so I came up with this version. It happens that in 50SQ -like the 2500 it's modeled after- there are spaces which don't have MxSW support. I've made them Half size in my version and call them H modules. It seems they would be a *perfect* place to have a Logic Extender like this. Extended Logic?
+
+Because the idea behind this module is a banana or 3,5mm stackcable logic patching arena with the grey jacks at top and bottom serving as flexible I/O points to the rest of the system. Which could have a different type of jack entirely. Via the MxSW or J10 panels. Picture each of the grey jacks connected -behind the panel to another jack leaving it empty for patching- or to one pole of an ARP 2500 style switch matrix to access the buses.
+
+Which means the lack of I/O in the H area doesn't matter since it can use the 20 grey jacks next door for that!
+
+What would you add to the existing Analogic Block?
+This is what I've thought about so far.
+At least a couple flip flops?
+Maybe more ORs, ANDs? XORs, NORs?
+Go full analog logic with a Min and Max set?
+A shift register?
+Debounced switches? <--Already have one tied to the main clock.
+A pulse delay, or pulse stretcher-extender?
+Something from the Lunetta world?
+An R-2R ladder?
+
+Even after deciding what to add, there's still plenty to think about how it can effectively interface with what's already in the 1089.
+I've drawn in one possible -logical?- layout, but it's not necessary to use it the way I've shown it. There are some advantages to doing so however. Like the fact that shorting bars shown as green ovals will work horizontally between the main module edge jacks and the X addition. And also between the two columns of the X module itself. Gray jacks 1 and 10 top and bottom are a slight distance off the grid of their group to make them also shorting bar capable.
+
+The red horizontal lines are the hard vertical limits of any behind the panel items. The yellow lines are softer limits to panel graphics or labeling. I've shown a few different APT logos I've used on other modules and one only has the APT half logo. Sometimes the smaller style are used to save space for labels.
+
+Most of the 1089 capability is clear from the layout and labels, but there are a couple items to explain.
+The smaller filled black ring-circle is an (ON)-OFF-ON toggle to allow the 3 step shift register to be disconnected from the clock in its middle position. Connected in the upward position. Momentarily connected in the downward position. I've set the clock to stay high at its CCW limit using a switched rate pot. This makes the toggle into a manual step. It is conditioned in this action to only give single clean clear steps per downward press of the toggle bat. At other pot positions it gates the clock.
+
+The large holes are for LEDs with grey jacks 2 and 9 at top and bottom having built-in state indicators to allow them to be used as visual aids to programming the logic block. They can also be used to check the level of any system point patched into them.
+
+The small holes next to the comparators are used with a 2mm hex wrench to set the comparator threshold level. I'm going to make some removable handles using 2mm hex and 1/4" or 6mm metal sleeve. <--You can guess why those two sizes are chosen! ;)
+
+It may make sense to put a VC comparator in the X area?
+Or two jacks for CV of the two CMPs already in the 1089? If you like this idea I can use a ribbon behind the panel to easily connect new Threshold CV jacks into the 1089 CMPs. Just show me where you'd put the new jacks.
+
+The red and Blue MxSW caps do not have to stay in that position. They can move around to reflect the patch, trading positions with the eight grey caps.
+
+So that's it. What's still missing that could will make the 1089 plus its 1089X better than before?
+
+One more thing I'm seeing as I look at this is that those shorting bars might be more useful with the jacks on the right side? I'm open to flipping the layout horizontally. Please think about how those other main module shorting bar positions can work with a 1089X on either side. Ideally the X module would make good use of shorting bars whether it's placed left or right side of the 1089.
+
+Edit: Swapping the left and right outs -and reset- of the divider puts the even divisions available to short bar with the X. An R-2R then looks better for the X./edit
+
+It can become tricky and involved very quickly which is why I'm asking for the MW hive mind's help!
+
+The two modules shown are the same layout with different jacks. The 1089X module needs to be a single design too.
+
+I plan to have a 'chaos' module so I'm not feeling a strong need to put that type of function here. But if you can make a good case why then it could be done. I'm looking forward to learning more!
+
+Any sketch or description you care to add will be very much appreciated!
+
+
+......
+
+
+XAOC Device - Drezno / Lipsk / Jena
+Joranalogue - Compare 2
+NLC - Neuron, New Systems Instruments - Babel
+
+......
+
+
+Dolphinwolf wrote: ↑Wed Sep 22, 2021 10:50 am
+When I started this thread I had a preconception that was not communicated well. Min and Max were all that I considered to be analog logic. Now I understand that some people consider this term to be a misnomer and other modules are important to this concept like comparators and slew and such.
+You have cut to the core in this post! There are indeed two different applied meanings for 'anaog logic or analogic. One which is truly digital-aka binary- 'underneath' analog inputs and often outputs too. The other is what you had in mind based on your post here. More akin to the fuzzy logic you mention in the next paragraph. They are truly different things and the results are different too. But fortunately they may be combined for even greater effect than used singly.
+Here is the gist of my concern and curiosity. If Min and Max are functional generalizations of And and Or gates then why the hell are we not able to stack and combine these analog gates to extract all kinds of significance from musical signals?
+You'll need a NOT aka inversion too. <--One reason I try to champion making and using moog style V-trig to S-trig patchcords. Add a couple diode patchcords I also regularly champoin and you have the means for both analog and binary logic.
+This thing I am typing on uses a whole bunch of boolean gates to do all kinds of things, wouldn’t it stand to reason that combining analog gates could yield enormous profit?
+Sure. Serge T also recognized what you've typed here about the massive utility of functional AND and OR and agreed! That's why there's a peak and trough module in his systems. Those are simple circuits. Why not make up a bunch of them and see where it leads? that may give you more and quicker answers than we could share here.
+I think I just need to research fuzzy logic and see if it can be applied to music processing equipment.
+Yes. This would be a useful path, I think. I would expect that looking into NLC's range of modules will also bear *much* fruit. Probably no one has ever done as deep a dive into this arena -for synths- as he.
+Also patching things into other things with only the smell of rationality hovering above my head.
+The ARP2500 is the queen of this. The matrixswitch patching sets up all kinds of inherent non-linear mixing, aka analogic. While you can patch it in a style of a 'patchcord' subtractive synth, there is much to be found going outside that approach! In your own synths, stop relying on the -mostly!*- outdated advice to avoid patching outputs-to-outputs and your world of sounds grows widely and immediately.
+
+*It was mostly an outdated understanding of the electronics needs -that OPAs would be broken by this**- and the Serge module owners manuals that started this now-held-as-sacred advice. But it doesn't hold up in actiual practice outside Serge. And some Buchla too. Some early 'digital' like the circuits of the EDP Wasp. Be careful with modules based on those ancestors. But in the large, almost all other synth modules handle output-to-output patching just fine. Alan Strange was talking about it way back when his book was published, ARP was doing it with both the 2500 and 2600 patching examples and advice. Not patching passive mults freely -to avoid some inherent 'danger'- is some of the most limiting and 'stupid' advice that ever rose to supposed fact in the modern synth world.
+
+**Besides opamps which *did* need care to prevent various problems. In the 60s. There was also the *huge* growth of TTL logic in the early 70s and especially its 'totem-pole' output structure which fed this fear of putting outputs together. Because if you do that in TTL, the outputs DO try to fight each other and that *can* lead to high current draw, heat and failure. But that doesn't really apply to most synth circuits. By the early 70s, the op amps used in synths were mostly protected and the fear of output to output no longer was based on much truth.
+
+This 'analogic' ground was well plowed and seeded in the past, with a bountiful classic harvest of music and other results that led to some of the lust we see today for clones. But then became overgrown and thick with unruly brush in the fear brought on by the first wave of digital and the fresh memories for opamps of the elders.
+
+It has lain fallow too long! Take up your plows and hoes! The ground is rich and with tender care it will repay and not forget evermore. ;)
+
+
+......
+
+
+again NLC
+
+......
+
+
+Here's something I found out recently that may be of interest to some of the readers of this thread:
+
+If you take two signals (A and B) such as 2 LFOs, etc. Sum A with the inverse of B. Half rectify the result. Sum that with B. Presuming you can do this accurately you'd have a signal that was the Max of the two signals.
+
+Take the same signals, and again, sum A with the inverse of B and half rectify it. Now invert this and sum it with A. This should give you your Min.
+
+You may need to be mindful of the level of peaks of the sum depending on what you were using to do the half rectification. Modules lke Worng Electronics' LRMSMSLR or Shakmat Modular's SUM/DIFF (with the -6dB jumper setting) would be handy for this method because they will half the signal after summing (or should I say, differencing it). This is useful because it will help avoid clipping if you are using, say, a linear VCA to do the haf rectifying. But a polarising mixer could be used, it may even be prefered if accuracy isn't so important, because it would allow for more control of the shape of the final signal. If you were to use something like an LRMSMSLR or SUM/DIFF (with -6dB jumper setting) with a (unipolar) linear VCA for half rectifying you'd want to feed the VCA (signal in) with a 10v offset (as opposed to a 5v one) to get it back up to scale before you sum it back with the original A or B signals.
+
+
+......
+
+
+discontinued's:
+
+Intellijel uMod II
+
+Doepfer A-172
+https://doepfer.de/A172.htm
+
+Livewire Vulcan Modulator dual LFO/and its fren spock... - i cursed his poor build quality but i miss himbs now. :<
+
+
+
+
+......
+
+
+I first encountered this thread when I had just started with modular synths. So I had a bit of trouble following it. I have to agree with others who are opposed to calling this analog logic. MIN/MAX is much more to the point.
+
+Anyway, I purchased Doepfer A-172 MAX/MIN as a part of a bigger purchase on this forum, because the price was great when buying several modules. It sat in my case without much use. I get what it does, but it just didn't turn out very useful. Then I decided to use it for half-wave rectification and it occurred to me, that I should feed it several VCOs and make them "interrupt" each other based on which VCO outputs a higher value at each given moment.
+
+The sound results turned out to be really pleasing. Here is a recreation of this patch in VCV rack:
+
+pic of vcvrack
+
+The green oscilloscope is 3 sine VCOs mixed together. Each VCO is tuned to different frequencies and each has a different output level via VCA.
+The red oscilloscope is the MAX of the same VCO/VCA setup.
+The purple oscilloscope is the MIN of the same VCO/VCA setup.
+The yellow oscilloscope is the sum of MAX and MIN to one channel.
+
+The MAX and MIN routed hard L/R is a great stereo effect (red and purple). Mixing them to the center results in yet another sound (yellow).
+MIN/MAX and MIN+MAX sound like differently distorted versions of the MIX.
+
+Modulating each VCA with an envelope gives nice dynamic non-subtractive synth sounds.
+
+Adding a DC offset to MIN/MAX results in a high-pass-ish sound. Positive DC for altering the MAX output, negative - for MIN. If the MAX and MIN are hard-panned L/R then a bi-polar sine LFO instead of the DC offset results in a pleasing phase-y panning tremolo.
+
+I didn't realize there was so much waveshaping and effects potential in my MIN/MAX module. I searched Mod Wiggler, and there are mentions of similar patches, but no longer discussions.
+
+Any tips for further audio frequency MIN/MAX exploration?
+
+
+......
+
+
+constant zeros/constant ones lunetta modules:
+as analogue = +/-5V offset artenuverting sources
+
+also there's separate ad and da modules - adda is better. :)
+
+
+......
+
+
+
